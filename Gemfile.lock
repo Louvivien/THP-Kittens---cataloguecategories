@@ -83,6 +83,7 @@ GEM
       warden (~> 1.2.3)
     domain_name (0.5.20180417)
       unf (>= 0.0.5, < 1.0.0)
+    dotenv (2.5.0)
     erubi (1.7.1)
     execjs (2.7.0)
     faker (1.9.1)
@@ -242,6 +243,7 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise
+  dotenv
   faker
   httparty
   jbuilder (~> 2.5)
