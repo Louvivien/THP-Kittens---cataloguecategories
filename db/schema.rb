@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2018_11_26_094849) do
     t.string "image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+
   end
 
   create_table "users", force: :cascade do |t|
