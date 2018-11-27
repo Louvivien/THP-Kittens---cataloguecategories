@@ -12,10 +12,11 @@ class ApplicationController < ActionController::Base
   #       end
   #     end
 
-      if session[:cart_id] == nil && current_user
-        @current_cart = Cart.create(user_id: current_user.id)
-        session[:cart_id] = @current_cart.id
-      end
-    end
 
+      # if session[:cart_id] == nil && current_user
+      #   @current_cart = Cart.create(user_id: current_user.id)
+      #   session[:cart_id] = @current_cart.id
+      # end
 end
+
+
