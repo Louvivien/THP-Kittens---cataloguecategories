@@ -1,4 +1,4 @@
-include 'CartTotal'
+include CartTotal
 
 class OrderController < ApplicationController
   def new
@@ -21,16 +21,20 @@ class OrderController < ApplicationController
       :source => params[stripeToken]
     )
 
-    charge = Stripe::Charge.create (
+    charge = Stripe::Charge.create(
       :customer => customer.id,
-      :amount => @amount
-      :description => "Paiement de #{current_user}"
-      :currecy => 'eur'
+      :amount => @amount,
+      :description => 'Paiement de #{current_user}',
+      :currency => 'eur'
     )
 
     rescue Stripe::CardError => e.message
       redirect_to root_path
-    end 
+     
+
+    redirect_to root_path
+
+
   end
 
   def show
