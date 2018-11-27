@@ -3,6 +3,7 @@ class OrderController < ApplicationController
   end
 
   def create
+    @amount = @order.total
   end
 
   def show
