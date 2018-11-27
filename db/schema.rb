@@ -49,10 +49,8 @@ ActiveRecord::Schema.define(version: 2018_11_26_151622) do
   create_table "orders", force: :cascade do |t|
     t.decimal "total"
     t.bigint "user_id"
-    t.bigint "cart_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["cart_id"], name: "index_orders_on_cart_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
