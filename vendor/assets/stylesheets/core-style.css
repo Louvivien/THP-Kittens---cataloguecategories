@@ -155,9 +155,30 @@ img {
 
 /* Miscellaneous */
 .bg-img {
+  background-image: url(fond-chat.jpg);
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat; }
+
+
+  .bg-img1{
+background-image: url(chat-persan.jpg);
+  }
+
+
+
+  .bg-img2{
+background-image: url(chat-bengal.jpg);
+  }
+
+
+  .bg-img3{
+background-image: url(chat-siamois.jpg);
+  }
+  
+.bg-img4{
+  background-image: url(chat-mignon.jpg);
+}
 
 .bg-white {
   background-color: #ffffff !important; }
