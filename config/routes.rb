@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'order/new'
+  get 'order/create'
+  get 'order/show'
+  get 'order/index'
   devise_for :users
   root 'home#index'
   get 'product/index'
