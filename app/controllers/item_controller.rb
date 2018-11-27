@@ -3,7 +3,13 @@ class ItemController < ApplicationController
     @items = Item.all
   end
 
-  def show
-    @item = Item.find(params[:id])
-  end
+  # def id
+  # 	@id = params[:id]
+  # 	@item = Item.find(params[:id])	
+  # end
+
+  # def show
+  #   @item = Item.find(params[:id])
+  # end
+
 end
