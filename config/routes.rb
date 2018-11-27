@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
+
+	
+   devise_for :users, controllers: {
+        sessions: 'users/sessions'
+      }
+
+
   get 'order/new'
   get 'order/create'
   get 'order/show'
   get 'order/index'
-  devise_for :users
+
   root 'home#index'
 
 
