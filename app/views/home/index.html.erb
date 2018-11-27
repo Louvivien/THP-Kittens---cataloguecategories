@@ -5,7 +5,7 @@
 
         <!-- Cart Button -->
         <div class="cart-button">
-            <a href="#" id="rightSideCart"><img src="img/core-img/bag.svg" alt=""> <span>3</span></a>
+            <a href="#" id="rightSideCart"><%= image_tag("core-img/bag.svg", alt: "basket") %> <span>3</span></a>
         </div>
 
         <div class="cart-content d-flex">
@@ -71,16 +71,32 @@
                     <li><span>discount:</span> <span>-15%</span></li>
                     <li><span>total:</span> <span>$232.00</span></li>
                 </ul>
-                <div class="checkout-btn mt-100">
-                    <a href="checkout.html" class="btn essence-btn">check out</a>
-                </div>
+                <%= form_tag order_create_path do %>
+                  <article>
+                    <% if flash[:error].present? %>
+                      <div id="error_explanation">
+                        <p><%= flash[:error] %></p>
+                      </div>
+                    <% end %>
+                    <label class="amount">
+                      <span>Amount: </span>
+                    </label>
+                  </article>
+                
+                  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                          data-description="Le prix de votre panier"
+                          data-amount="500"
+                          data-currency="eur"
+                          data-locale="auto"></script>
+                <% end %>
             </div>
         </div>
     </div>
     <!-- ##### Right Side Cart End ##### -->
 
     <!-- ##### Welcome Area Start ##### -->
-    <section class="welcome_area bg-img background-overlay" style="background-image: url(img/bg-img/bg-1.jpg);">
+    <section class="welcome_area bg-img background-overlay">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
@@ -101,25 +117,25 @@
             <div class="row justify-content-center">
                 <!-- Single Catagory -->
                 <div class="col-12 col-sm-6 col-md-4">
-                    <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(img/bg-img/bg-2.jpg);">
+                    <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img bg-img1">
                         <div class="catagory-content">
-                            <a href="#">Clothing</a>
+                            <a href="#">Chat Persan</a>
                         </div>
                     </div>
                 </div>
                 <!-- Single Catagory -->
                 <div class="col-12 col-sm-6 col-md-4">
-                    <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(img/bg-img/bg-3.jpg);">
+                    <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img bg-img2">
                         <div class="catagory-content">
-                            <a href="#">Shoes</a>
+                            <a href="#">Chat Benghal</a>
                         </div>
                     </div>
                 </div>
                 <!-- Single Catagory -->
                 <div class="col-12 col-sm-6 col-md-4">
-                    <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(img/bg-img/bg-4.jpg);">
+                    <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img bg-img3" >
                         <div class="catagory-content">
-                            <a href="#">Accessories</a>
+                            <a href="#">Chat Siamois</a>
                         </div>
                     </div>
                 </div>
@@ -133,7 +149,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <div class="cta-content bg-img background-overlay" style="background-image: url(img/bg-img/bg-5.jpg);">
+                    <div class="cta-content bg-img background-overlay bg-img4">
                         <div class="h-100 d-flex align-items-center justify-content-end">
                             <div class="cta--text">
                                 <h6>-60%</h6>
