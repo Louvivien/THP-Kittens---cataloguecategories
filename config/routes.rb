@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'item/index'
-  get 'item/show'
   devise_for :users
   root 'home#index'
   get 'item/index'
