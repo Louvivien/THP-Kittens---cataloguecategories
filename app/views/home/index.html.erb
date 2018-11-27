@@ -71,6 +71,11 @@
                     <li><span>discount:</span> <span>-15%</span></li>
                     <li><span>total:</span> <span>$232.00</span></li>
                 </ul>
+
+                <div class="checkout-btn mt-100">
+                    <a href="#" class="btn essence-btn">check out</a>
+                </div>
+
                 <%= form_tag order_create_path do %>
                   <article>
                     <% if flash[:error].present? %>
@@ -90,6 +95,7 @@
                           data-currency="eur"
                           data-locale="auto"></script>
                 <% end %>
+
             </div>
         </div>
     </div>
