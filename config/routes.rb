@@ -18,7 +18,10 @@ Rails.application.routes.draw do
   post 'orders(.:format)', to: 'orders#create', as: 'order_creation'
 
   
-  resources :item, only: [:index, :show]
+  resources :item
+
+  #get 'item/index'
+  #get 'item/:id' => "items#show"
  
   post 'cart_items' => "cart_items#create"
   get 'cart_items/:id' => "cart_items#create"
