@@ -18,8 +18,10 @@ Rails.application.routes.draw do
   post 'orders(.:format)', to: 'orders#create', as: 'order_creation'
 
   
-  get 'item/index'
-  get 'item/show'
-  
+  resources :item, only: [:index, :show]
+ 
+  post 'cart_items' => "cart_items#create"
+  get 'cart_items/:id' => "cart_items#create"
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
