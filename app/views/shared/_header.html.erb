@@ -52,7 +52,7 @@
                 </div>
                 <!-- Cart Area -->
                 <div class="cart-area">
-                    <a href="#" id="essenceCartBtn"><%= image_tag("core-img/bag.svg", alt: "basket") %><span>3</span></a>
+                    <a href="#" id="essenceCartBtn"><%= image_tag("core-img/bag.svg", alt: "basket") %><span><%= @current_cart.items.count %></span></a>
                 </div>
             </div>
 

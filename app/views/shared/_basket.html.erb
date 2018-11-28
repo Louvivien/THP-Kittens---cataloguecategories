@@ -2,10 +2,10 @@
     <div class="cart-bg-overlay"></div>
 
     <div class="right-side-cart-area">
-
+    
         <!-- Cart Button -->
         <div class="cart-button">
-            <a href="#" id="rightSideCart"><%= image_tag("core-img/bag.svg", alt: "basket") %> <span>3</span></a>
+            <a href="#" id="rightSideCart"><%= image_tag("core-img/bag.svg", alt: "basket") %> <span><%= @current_cart.items.count %> </span></a>
         </div>
 
         <div class="cart-content d-flex">
@@ -15,16 +15,16 @@
 
                 <!-- Single Cart Item -->
                 <% if session[:cart_id] %>
-                <% @current_cart.items.each do |x| %>
+                <% @current_cart.cart_items.each do |x| %>
 
                 <div class="single-cart-item">
                     <a href="#" class="product-image">
-                         <img src="<%= x.image_url %>" alt="img shop">
+                         <img src="<%= x.item.image_url %>" alt="img shop">
                         <!-- Cart Item Desc -->
                         <div class="cart-item-desc">
-                          <span class="product-remove"><i class="fa fa-close" aria-hidden="true"></i></span>
-                            <span class="badge"><%= x.price %></span>
-                            <h6><%= x.title %></h6>
+                          <%= link_to 'Destroy', cart_item_path(x.id), method: :delete %>
+                            <span class="badge"><%= x.item.price %></span>
+                            <h6><%= x.item.title %></h6>
                             
                         </div>
                     </a>

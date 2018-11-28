@@ -16,9 +16,10 @@ Rails.application.routes.draw do
 
   
 
-  resources :item, only: [:index, :show]
-  post 'cart_item', to: "cart_item#create"
-
+  resources :item
+  #post 'cart_item', to: "cart_item#create"
+  #delete 'cart_item', to: "cart_item#destroy", as: "destroy_cart_item"
+  resources :cart_item
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
