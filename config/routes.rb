@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 	
+  get 'adminpage/new'
+  get 'adminpage/index'
    devise_for :users, controllers: {
         sessions: 'users/sessions'
       }
@@ -26,5 +28,7 @@ Rails.application.routes.draw do
   post 'cart_items' => "cart_items#create"
   get 'cart_items/:id' => "cart_items#create"
 
+
+resources :adminpage
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

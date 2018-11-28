@@ -1,0 +1,30 @@
+<h1>Bienvenue @user </h1>
+
+<table>
+   <tr>
+   		<th>Images</th>
+       <th>Titre</th>
+       <th>Description?</th>
+       <th>Prix</th>
+        <th>Modifier</th>
+    </tr>
+
+    <% @items.each do |item| %>
+
+    <tr>
+    	<td><img src="<%=item.image_url%>"></td>
+    	<td><%=item.title %></td>
+    	<td><%=item.description %></td>
+    	<td><%=item.price%></td>
+    	<td> <a href="">modifier</a> </tD>
+
+
+    	
+
+
+
+    </tr>
+     
+<% end %>
+     
+</table>

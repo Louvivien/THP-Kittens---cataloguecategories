@@ -103,7 +103,9 @@
         <div class="single_product_thumb clearfix">
             <div class="product-img">
                <img src="<%= @item.image_url %>" alt="img shop">
-                
+               <% unless @item.image %>
+               <%= image_tag @item.image %>
+               <% end %>
             </div>
         </div>
 
