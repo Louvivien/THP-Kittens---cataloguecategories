@@ -6,5 +6,6 @@ class AdminpageController < ApplicationController
   def index
   		@user = current_user
   		@items = Item.all
+  		@orders = Order.all
   end
 end
