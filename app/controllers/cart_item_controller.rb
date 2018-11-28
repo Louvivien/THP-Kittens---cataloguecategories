@@ -1,4 +1,4 @@
-class CartItemController < ApplicationController
+=begin class CartItemController < ApplicationController
   def create
     chosen_item = Item.find(params[:item_id])
     current_cart = @current_cart
@@ -33,3 +33,5 @@ class CartItemController < ApplicationController
       params.require(:cart_item).permit(:quantity,:item_id, :cart_id)
     end
 end
+
+=end

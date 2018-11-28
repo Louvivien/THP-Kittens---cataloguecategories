@@ -1,3 +1,4 @@
+
 class CartController < ApplicationController
   #  def show
   #  include CartTotal
@@ -12,3 +13,4 @@ class CartController < ApplicationController
   #   redirect_to root_path
   # end
 end
+
