@@ -1,11 +1,8 @@
 Rails.application.routes.draw do
 
 	
-  get 'adminpage/new'
-  get 'adminpage/index'
-   devise_for :users, controllers: {
-        sessions: 'users/sessions'
-      }
+ 
+   devise_for :users
 
 
   # get 'order/new'
