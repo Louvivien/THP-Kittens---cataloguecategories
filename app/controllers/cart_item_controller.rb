@@ -25,8 +25,8 @@
   end
   def add_quantity
     @cart_item = CartItem.find(params[:id])
-    @line_item.quantity += 1
-    @line_item.save
+    @cart_item.quantity += 1
+    @cart_item.save
   end
   def reduce_quantity
     @cart_item = CartItem.find(params[:id])

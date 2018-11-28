@@ -27,12 +27,15 @@
                         <div class="cart-item-desc">
                           <%= link_to 'Destroy', cart_item_path(x.id), method: :delete %>
                             <span class="badge"><%= x.item.price %></span>
+                             <span class="badge"><%= x.quantity %></span>
+
                             <h6><%= x.item.title %></h6>
                             
                         </div>
                     </a>
                 </div>
-                <a href="#"><strong>+   </strong></span></a><a href="#"><span class="cart-button"><strong>  -</strong></span></a>
+                <%=link_to "+", cart_item_add_path(x.id), method: :post %>
+                <%=link_to "-", cart_item_reduce_path(x.id), method: :post %>
                 <% end %>
                 <% end %>
             </div>
