@@ -1,4 +1,4 @@
-=begin class CartItemController < ApplicationController
+ class CartItemController < ApplicationController
   def create
     chosen_item = Item.find(params[:item_id].to_i)
     current_cart = @current_cart
@@ -34,4 +34,3 @@
     end
 end
 
-=end
