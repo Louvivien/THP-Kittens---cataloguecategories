@@ -5,7 +5,7 @@ require 'faker'
   Item.create("title": Faker::Cat.name, "description": Faker::Simpsons.quote, "price": rand(10)+1, "image_url": json.parsed_response["file"])
 end
 
-
+=begin
 5.times do 
   User.create(email: Faker::Internet.email, password: "truc965", password_confirmation: "truc965")
 end
@@ -21,3 +21,5 @@ end
 3.times do 
   Order.create(total: rand(100)+1, user_id: rand(5)+1)
 end
+=end
+

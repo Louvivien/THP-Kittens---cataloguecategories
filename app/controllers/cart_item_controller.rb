@@ -1,8 +1,8 @@
 class CartItemController < ApplicationController
   def create
-    chosen_item = Item.find(params[:item_id])
+    chosen_item = Item.find(params[:item_id].to_i)
     current_cart = @current_cart
-    if current_cart.items.include?(chosen_item)
+    if current_cart.items.include?(chosen_item)  
       @cart_item = current_cart.cart_items.find_by(item_id: chosen_item)
       @cart_item.quantity += 1
     else
@@ -13,7 +13,7 @@ class CartItemController < ApplicationController
     @cart_item.save
   end
   def destroy
-    @cart_item = CartItem.find(cart_item_params[:id])
+    @cart_item = CartItem.find(params[:id])
     @cart_item.destroy
   end
   def add_quantity
