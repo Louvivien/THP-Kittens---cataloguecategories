@@ -101,7 +101,7 @@
                                            
                                             <h6><%= link_to item.title, item_path(item.id) %></h6>
                                        
-                                        <p class="product-price"><%= item.price %></p>
+                                        <p class="product-price"><%=number_to_currency( item.price, :unit=>'€') %></p>
 
                                         <!-- Hover Content -->
                                         <div class="hover-content">
