@@ -1,4 +1,4 @@
-class CartController < ApplicationController
+=begin class CartController < ApplicationController
    def show
    include CartTotal
     @cart = @current_cart
@@ -12,3 +12,5 @@ class CartController < ApplicationController
     redirect_to root_path
   end
 end
+
+=end

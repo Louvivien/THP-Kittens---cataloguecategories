@@ -1,5 +1,9 @@
 class ApplicationController < ActionController::Base
+
+=begin
   before_action :current_cart
+
+
 
   private
     def current_cart
@@ -17,4 +21,7 @@ class ApplicationController < ActionController::Base
         session[:cart_id] = @current_cart.id
       end
     end
+
+=end
 end
+
