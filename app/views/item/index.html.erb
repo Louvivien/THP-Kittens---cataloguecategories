@@ -194,6 +194,8 @@
                                     <!-- Product Description -->
                                     <div class="product-description">
                                         
+
+                                           
                                             <h6><%= link_to item.title, item_path(item.id) %></h6>
                                        
                                         <p class="product-price"><%= item.price %></p>
@@ -203,7 +205,7 @@
                                             <!-- Add to Cart -->
                                             <div class="add-to-cart-btn">
                                                  
-                                                 <%= link_to "Add to cart", cart_items_path(item_id: item.id), class: "btn essence-btn" %>
+                                                 <%= link_to "Add to cart", cart_item_path(item_id: item.id), method: :post, class: "btn essence-btn" %>
                                             </div>
                                         </div>
 
