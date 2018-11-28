@@ -1,15 +1,12 @@
 Rails.application.routes.draw do
 
 	
-   devise_for :users, controllers: {
-        sessions: 'users/sessions'
-      }
+  devise_for :users
 
-
-  get 'order/new'
-  get 'order/create'
-  get 'order/show'
-  get 'order/index'
+  # get 'order/new'
+  # get 'order/create'
+  # get 'order/show'
+  # get 'order/index'
 
   root 'home#index'
 
@@ -18,8 +15,11 @@ Rails.application.routes.draw do
   post 'orders(.:format)', to: 'orders#create', as: 'order_creation'
 
   
-  get 'item/index'
-  get 'item/show'
-  
+  resources :item
+
+ 
+  post 'cart_items' => "cart_items#create"
+  get 'cart_items/:id' => "cart_items#create"
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

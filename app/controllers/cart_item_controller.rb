@@ -1,9 +1,9 @@
-class CartItemController < ApplicationController
+=begin class CartItemController < ApplicationController
   def create
     chosen_item = Item.find(params[:item_id])
     current_cart = @current_cart
     if current_cart.items.include?(chosen_item)
-      @cart_item = current_cart.cart_items.find_by(item_id: chosen_product)
+      @cart_item = current_cart.cart_items.find_by(item_id: chosen_item)
       @cart_item.quantity += 1
     else
       @cart_item = CartItem.new
@@ -33,3 +33,5 @@ class CartItemController < ApplicationController
       params.require(:cart_item).permit(:quantity,:item_id, :cart_id)
     end
 end
+
+=end
