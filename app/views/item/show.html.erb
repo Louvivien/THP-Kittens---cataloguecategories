@@ -6,9 +6,11 @@
         <!-- Single Product Thumb -->
         <div class="single_product_thumb clearfix">
             <div class="product-img">
-               <img src="<%= @item.image_url %>" alt="img shop">
+               
                <% unless @item.image.attachment.nil? %>
                <%= image_tag @item.image %>
+               <% else %>
+               <img src="<%= @item.image_url %>" alt="img shop">
                <% end %>
             </div>
         </div>
