@@ -1,0 +1,21 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>An user ordered something !</h1>
+    <p><%= @user.username %> ordered the following items :</p>
+    <table>
+      <tr>Image</tr>
+      <tr>Title</tr>
+      <tr>Qté</tr>
+      <% @order.items.each do |item| %>
+        <td><%= image_tag item.image %></td>
+        <td><%= item.title %></td>
+        <td></td>
+      <% end %>
+    </table>
+  </body>
+</html>

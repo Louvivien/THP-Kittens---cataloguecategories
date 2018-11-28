@@ -19,5 +19,5 @@ end
 end
 
 3.times do 
-  Order.create(total: rand(100)+1, user_id: rand(5)+1, cart_id: rand(3)+1)
+  Order.create(total: rand(100)+1, user_id: rand(5)+1)
 end
