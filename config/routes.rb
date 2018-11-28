@@ -14,7 +14,10 @@ Rails.application.routes.draw do
   root 'home#index'
 
 
-  resources :orders, only: [:new, :create, :show, :index]
+  resources :orders, only: [:new, :show, :index]
+  post 'orders(.:format)', to: 'orders#create', as: 'order_creation'
+
+  
   get 'item/index'
   get 'item/show'
   
