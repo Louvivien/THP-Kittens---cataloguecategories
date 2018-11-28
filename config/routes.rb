@@ -1,15 +1,12 @@
 Rails.application.routes.draw do
 
 	
-   devise_for :users, controllers: {
-        sessions: 'users/sessions'
-      }
+  devise_for :users
 
-
-  get 'order/new'
-  get 'order/create'
-  get 'order/show'
-  get 'order/index'
+  # get 'order/new'
+  # get 'order/create'
+  # get 'order/show'
+  # get 'order/index'
 
   root 'home#index'
 
@@ -20,8 +17,6 @@ Rails.application.routes.draw do
   
   resources :item
 
-  #get 'item/index'
-  #get 'item/:id' => "items#show"
  
   post 'cart_items' => "cart_items#create"
   get 'cart_items/:id' => "cart_items#create"
