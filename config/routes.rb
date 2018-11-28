@@ -21,8 +21,9 @@ Rails.application.routes.draw do
 
   
 
-  resources :item, only: [:index, :show]
+  resources :item
   post 'cart_item', to: "cart_item#create"
+  delete 'cart_item.:id', to: "cart_item#destroy"
 
 
 

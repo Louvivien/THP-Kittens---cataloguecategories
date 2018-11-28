@@ -1,0 +1,77 @@
+<!-- ##### Right Side Cart Area ##### -->
+    <div class="cart-bg-overlay"></div>
+
+    <div class="right-side-cart-area">
+    
+        <!-- Cart Button -->
+        <div class="cart-button">
+            <a href="#" id="rightSideCart"><%= image_tag("core-img/bag.svg", alt: "basket") %> <span><%= @current_cart.items.count %> </span></a>
+        </div>
+
+        <div class="cart-content d-flex">
+
+            <!-- Cart List Area -->
+            <div class="cart-list">
+
+                <!-- Single Cart Item -->
+                <% if session[:cart_id] %>
+                <% @current_cart.cart_items.each do |x| %>
+
+                <div class="single-cart-item">
+                    <a href="#" class="product-image">
+                         <img src="<%= x.item.image_url %>" alt="img shop">
+                        <!-- Cart Item Desc -->
+                        <div class="cart-item-desc">
+                          <%= link_to 'Destroy', cart_item_path(x.id), method: :delete %>
+                            <span class="badge"><%= x.item.price %></span>
+                            <h6><%= x.item.title %></h6>
+                            
+                        </div>
+                    </a>
+                </div>
+                <% end %>
+                <% end %>
+            </div>
+            
+
+            <!-- Cart Summary -->
+            <div class="cart-amount-summary">
+
+                <h2>Summary</h2>
+                <ul class="summary-table">
+                    <li><span>subtotal:</span> <span>$274.00</span></li>
+                    <li><span>delivery:</span> <span>Free</span></li>
+                    <li><span>total:</span> <span>$232.00</span></li>
+                </ul>
+                <% if user_signed_in? %>
+                <%= form_tag order_creation_path do %>
+
+                  <article>
+                    <% if flash[:error].present? %>
+                      <div id="error_explanation">
+                        <p><%= flash[:error] %></p>
+                      </div>
+                    <% end %>
+                    <label class="amount">
+                      <span>Amount: </span>
+                    </label>
+                  </article>
+                  
+                  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                          data-description="Le prix de votre panier"
+                          data-amount="500"
+                          data-currency="eur"
+                          data-locale="auto"></script>
+                <% end %>
+                <% else %>
+
+                <%= link_to('Sign in', new_user_session_path)  %>  
+                
+                <% end %>
+
+
+            </div>
+        </div>
+    </div>
+    <!-- ##### Right Side Cart End ##### -->
