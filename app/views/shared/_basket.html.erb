@@ -46,9 +46,8 @@
 
                 <h2>Summary</h2>
                 <ul class="summary-table">
-                    <li><span>subtotal:</span> <span>$274.00</span></li>
                     <li><span>delivery:</span> <span>Free</span></li>
-                    <li><span>total:</span> <span>$232.00</span></li>
+                    <li><span>total:</span> <span><%= total %> €</span></li>
                 </ul>
                 <% if user_signed_in? %>
                 <%= form_tag order_creation_path do %>
@@ -67,7 +66,7 @@
                   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
                           data-description="Le prix de votre panier"
-                          data-amount="500"
+                          data-amount="<%= total_stripe %>"
                           data-currency="eur"
                           data-locale="auto"></script>
                 <% end %>
