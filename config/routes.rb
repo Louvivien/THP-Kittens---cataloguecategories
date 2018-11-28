@@ -8,10 +8,10 @@ Rails.application.routes.draw do
       }
 
 
-  get 'order/new'
-  get 'order/create'
-  get 'order/show'
-  get 'order/index'
+  # get 'order/new'
+  # get 'order/create'
+  # get 'order/show'
+  # get 'order/index'
 
   root 'home#index'
 
@@ -20,13 +20,11 @@ Rails.application.routes.draw do
   post 'orders(.:format)', to: 'orders#create', as: 'order_creation'
 
   
-  resources :item
 
-  #get 'item/index'
-  #get 'item/:id' => "items#show"
- 
-  post 'cart_items' => "cart_items#create"
-  get 'cart_items/:id' => "cart_items#create"
+  resources :item, only: [:index, :show]
+  post 'cart_item', to: "cart_item#create"
+
+
 
 
 resources :adminpage
