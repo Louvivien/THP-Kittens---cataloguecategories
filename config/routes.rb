@@ -7,11 +7,6 @@ Rails.application.routes.draw do
   get '/users/:id', to: 'users#show', as: 'user'
 
 
-  # get 'order/new'
-  # get 'order/create'
-  # get 'order/show'
-  # get 'order/index'
-
   root 'home#index'
 
 
