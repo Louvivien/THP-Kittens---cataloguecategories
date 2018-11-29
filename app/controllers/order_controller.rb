@@ -5,6 +5,8 @@ class OrderController < ApplicationController
   end
 
   def create
+
+
     @amount = ((total(session[:cart_id]).to_i) * 100)
 
     @order = Order.new
@@ -34,6 +36,8 @@ class OrderController < ApplicationController
     flash[:error] = e.message
     redirect_to root_path
   
+
+
   end
 
   def show

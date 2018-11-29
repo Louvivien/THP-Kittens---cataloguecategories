@@ -45,6 +45,7 @@
             
 
             <!-- Cart Summary -->
+            <% if user_signed_in? %>
             <div class="cart-amount-summary">
 
                 <h2>Summary</h2>
@@ -54,7 +55,7 @@
                     <li><span>total:</span> <span><%= total %> €</span></li>
 
                 </ul>
-                <% if user_signed_in? %>
+                
                 <%= form_tag order_creation_path do %>
 
                   <article>
