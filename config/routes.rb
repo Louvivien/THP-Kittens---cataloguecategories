@@ -1,17 +1,14 @@
 Rails.application.routes.draw do
 
 	
-  get 'adminpage/new'
-  get 'adminpage/index'
-   devise_for :users, controllers: {
-        sessions: 'users/sessions'
-      }
+ 
+   devise_for :users
 
 
-  get 'order/new'
-  get 'order/create'
-  get 'order/show'
-  get 'order/index'
+  # get 'order/new'
+  # get 'order/create'
+  # get 'order/show'
+  # get 'order/index'
 
   root 'home#index'
 
@@ -20,7 +17,12 @@ Rails.application.routes.draw do
   post 'orders(.:format)', to: 'orders#create', as: 'order_creation'
 
   
+
   resources :item
+  post 'cart_item', to: "cart_item#create"
+  delete 'cart_item.:id', to: "cart_item#destroy"
+
+
 
   #get 'item/index'
   #get 'item/:id' => "items#show"
@@ -28,6 +30,7 @@ Rails.application.routes.draw do
   post 'cart_items' => "cart_items#create"
   get 'cart_items/:id' => "cart_items#create"
   post 'items', to: 'item#new'
+
 
 
 resources :adminpage

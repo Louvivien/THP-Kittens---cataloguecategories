@@ -18,10 +18,22 @@
                     <div class="classynav">
                         <ul>
                             <li><a href="/">Home</a></li>
-                            <li><a href="/item/index">Shop</a></li>
-                            <li><a href="/users/sign_in">Sign in</a></li>
-                            <li><a href="/users/sign_up">Sign up</a></li>
-                            <li><a href="/users/sign_out">Log out</a></li>
+                            <li><a href="/item">Shop</a></li>
+                            
+                            
+
+                            <% if user_signed_in? %>
+                              <li>
+                              <%= link_to('Logout', destroy_user_session_path, method: :delete) %>        
+                              </li>
+                            <% else %>
+                              <li>
+                              <%= link_to('Sign in', new_user_session_path)  %>  
+                              </li>
+                              <li>
+                                <%= link_to('Sign up', new_user_registration_path)  %>
+                              </li>
+                            <% end %>
                         </ul>
                     </div>
                     <!-- Nav End -->
@@ -39,9 +51,13 @@
                     <a href="/users/edit"><%= image_tag("core-img/user.svg", alt: "user") %></a>
                 </div>
                 <!-- Cart Area -->
+              
+                <% if current_user %>
                 <div class="cart-area">
-                    <a href="#" id="essenceCartBtn"><%= image_tag("core-img/bag.svg", alt: "basket") %><span>3</span></a>
+                    <a href="#" id="essenceCartBtn"><%= image_tag("core-img/bag.svg", alt: "basket") %><span><%= @current_cart.items.count %></span></a>
                 </div>
+                <% end %>
+                
             </div>
 
         </div>
