@@ -3,5 +3,14 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .cart-list{
-	margin-left: 10px;
+	padding-left: 5px;
+}
+
+.hp{
+	opacity: 0.8;
+	transition: 0.2s;
+}
+
+.hp:hover {
+	opacity: 1;
 }

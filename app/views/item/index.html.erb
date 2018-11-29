@@ -83,13 +83,17 @@
                                 <div class="single-product-wrapper">
                                     <!-- Product Image -->
                                     <div class="product-img">
-                                        <img src="<%= item.image_url %>" alt="img shop">
-                                        
-                                        <!-- Favourite -->
-                                        <div class="product-favourite">
-                                            <a href="#" class="favme fa fa-heart"></a>
-                                        </div>
+                                       <% unless item.image.attachment.nil? %>
+                                       <%= image_tag item.image %>
+                                       <% else %>
+                                       <img src="<%= item.image_url %>" alt="img shop">
+                                       <!-- Favourite -->
+                                       <div class="product-favourite">
+                                           <a href="#" class="favme fa fa-heart"></a>
+                                       </div>
+                                       <% end %>
                                     </div>
+                                    
 
                                     <!-- Product Description -->
                                     <div class="product-description">

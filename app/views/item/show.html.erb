@@ -2,13 +2,13 @@
     <section class="single_product_details_area d-flex align-items-center">
 
         <!-- Single Product Thumb -->
-        <div class="single_product_thumb clearfix">
+        <div class="single_product_thumb clearfix mt-3 mb-3">
             <div class="product-img">
                
                <% unless @item.image.attachment.nil? %>
                <%= image_tag @item.image %>
                <% else %>
-               <img src="<%= @item.image_url %>" alt="img shop">
+               <img src="<%= @item.image_url %>" alt="img shop" class="ml-4">
                <% end %>
             </div>
         </div>
@@ -19,7 +19,7 @@
             <a href="#">
                 <h2><%= @item.title %></h2>
             </a>
-            <p class="product-price"><%= @item.price %></p>
+            <p class="product-price"><%= number_to_currency( @item.price, :unit=>'€') %></p>
             <p class="product-desc"><%= @item.description %></p>
 
             <!-- Form -->
