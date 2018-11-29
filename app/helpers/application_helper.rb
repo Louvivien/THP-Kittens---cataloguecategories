@@ -13,5 +13,12 @@ module ApplicationHelper
       sum += x.quantity * x.item.price
     end
   return sum * 100
-  end 
+  end
+  def total_quatity
+    q = 0
+    Cart.find(session[:cart_id]).cart_items.each do |x|
+      q += x.quantity
+    end
+    return q
+  end
 end
