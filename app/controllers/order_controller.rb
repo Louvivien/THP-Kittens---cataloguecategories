@@ -51,6 +51,7 @@ class OrderController < ApplicationController
 
   def show
     @order = Order.last
+
   end
 
   def index
