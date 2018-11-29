@@ -6,4 +6,5 @@ class Item < ApplicationRecord
   validates :image_url, presence: true, format: {with: URI::regexp(["http", "https"])}, on: :create
   has_one_attached :image
   has_many :cart_items, dependent: :destroy
+  belongs_to :category
 end
