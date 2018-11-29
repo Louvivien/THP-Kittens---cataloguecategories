@@ -1,4 +1,7 @@
  class CartItemController < ApplicationController
+
+  respond_to :html, :js
+
   def create
     chosen_item = Item.find(params[:item_id].to_i)
     current_cart = @current_cart

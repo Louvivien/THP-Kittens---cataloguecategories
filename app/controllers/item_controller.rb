@@ -1,5 +1,6 @@
 class ItemController < ApplicationController
 
+  respond_to :html, :js
 
 
   def new

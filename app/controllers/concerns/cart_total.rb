@@ -7,5 +7,4 @@ module CartTotal
     end
     return sum
   end 
-
 end
