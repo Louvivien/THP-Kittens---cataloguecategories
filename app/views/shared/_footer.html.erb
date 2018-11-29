@@ -10,10 +10,24 @@
                         <!-- Footer Menu -->
                         <div class="footer_menu">
                             <ul>
-                                <li><a href="#">Shop</a></li>
-                                <li><a href="#">Profil</a></li>
-                                <li><a href="#">Contact</a></li>
-                            </ul>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/item">Shop</a></li>
+                            
+                            
+
+                            <% if user_signed_in? %>
+                              <li>
+                              <%= link_to('Logout', destroy_user_session_path, method: :delete) %>        
+                              </li>
+                            <% else %>
+                              <li>
+                              <%= link_to('Sign in', new_user_session_path)  %>  
+                              </li>
+                              <li>
+                                <%= link_to('Sign up', new_user_registration_path)  %>
+                              </li>
+                            <% end %>
+                        </ul>
                         </div>
                     </div>
                 </div>

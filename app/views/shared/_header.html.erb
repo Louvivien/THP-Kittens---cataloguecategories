@@ -49,8 +49,11 @@
                 <!-- User Login Info -->
                 <div class="user-login-info">
                     
-                    
+                    <% if user_signed_in? %>
+
                    <%= link_to image_tag('core-img/user.svg'), user_path(current_user.id) %>
+
+                   <% end %>
                 </div>
 
 
