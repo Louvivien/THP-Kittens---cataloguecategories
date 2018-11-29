@@ -21,7 +21,7 @@
                 <% @current_cart.cart_items.each do |x| %>
 
                 <div class="single-cart-item ml-20">
-                    <a href="<%= item_path(x.item_id) %>" class="product-image">
+                    <a href="<%= item_path(x.item_id) %>" class="product-image mb-2">
                          <img src="<%= x.item.image_url %>" alt="img shop">
                         <!-- Cart Item Desc -->
                         <div class="cart-item-desc">
@@ -37,7 +37,7 @@
                 <span class="hp ml-1"><%= link_to image_tag('core-img/arrow-up.svg'), cart_item_add_path(x.id), method: :post  %></span>
                 <span class="hp"><%= link_to image_tag('core-img/arrow-down.svg'), cart_item_reduce_path(x.id), method: :post  %></span>
                 <span class="badge badge-dark ml-1">Qt : <%= x.quantity %></span>
-                <span class="badge badge-danger hp"><%= link_to 'Destroy', cart_item_path(x.id), method: :delete %></span>
+                <span class="badge badge-danger hp mb-2"><%= link_to 'Destroy', cart_item_path(x.id), method: :delete %></span>
                 
                 <% end %>
                 <% end %>
