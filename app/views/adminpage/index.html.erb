@@ -1,5 +1,7 @@
 <h1>Bienvenue @user </h1>
 
+<p> Voici la liste des produits présents sur le site :</p>
+
 <table>
    <tr>
    		<th>Images</th>
@@ -16,15 +18,15 @@
     	<td><%=item.title %></td>
     	<td><%=item.description %></td>
     	<td><%=item.price%></td>
-    	<td> <a href="">modifier</a> </tD>
-
-
-    	
-
-
-
-    </tr>
-     
-<% end %>
-     
+    	<td> <%= link_to "Modifier", edit_item_path(item.id)%> </tD>
+    </tr>   
+<% end %>   
 </table>
+
+
+<p>Voici la liste des commandes recus :</p>
+
+<% @orders.each do |order| %>
+<p><%= order %>
+
+  <% end %>
