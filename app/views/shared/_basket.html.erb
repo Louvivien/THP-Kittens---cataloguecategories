@@ -1,89 +1,100 @@
 <!-- ##### Right Side Cart Area ##### -->
-    <div class="cart-bg-overlay"></div>
+<div class="cart-bg-overlay"></div>
 
-    <div class="right-side-cart-area">
-    
-        <!-- Cart Button -->
-       
-         <% if current_user %>
-        <div class="cart-button">
-            <a href="#" id="rightSideCart"><%= image_tag("core-img/bag.svg", alt: "basket") %> <span><%= total_quantity %> </span></a>
-        </div>
-         <% end %>
-         
-        <div class="cart-content d-flex">
+<div class="right-side-cart-area">
 
-            <!-- Cart List Area -->
-            <div class="cart-list">
+  <!-- Cart Button -->
 
-                <!-- Single Cart Item -->
-                <% if session[:cart_id] %>
-                <% @current_cart.cart_items.each do |x| %>
+  <% if current_user %>
+  <div class="cart-button">
+    <a href="#" id="rightSideCart">
+      <%= image_tag("core-img/bag.svg", alt: "basket") %> <span>
+        <%= total_quantity %> </span></a>
+  </div>
+  <% end %>
 
-                <div class="single-cart-item ml-20">
-                    <a href="<%= item_path(x.item_id) %>" class="product-image mb-2">
-                         <img src="<%= x.item.image_url %>" alt="img shop">
-                        <!-- Cart Item Desc -->
-                        <div class="cart-item-desc">
-                          <h6><%= x.item.title  %></h6>
-          
-                        </div>
-                    </a>
-                </div>
-                <span><strong><%= number_to_currency( x.item.price, :unit=>'€') %></strong></span>
+  <div class="cart-content d-flex">
 
-                
+    <!-- Cart List Area -->
+    <div class="cart-list">
 
-                <span class="hp ml-1"><%= link_to image_tag('core-img/arrow-up.svg'), cart_item_add_path(x.id), method: :post  %></span>
-                <span class="hp"><%= link_to image_tag('core-img/arrow-down.svg'), cart_item_reduce_path(x.id), method: :post  %></span>
-                <span class="badge badge-dark ml-1">Qt : <%= x.quantity %></span>
-                <span class="badge badge-danger hp mb-2"><%= link_to 'Destroy', cart_item_path(x.id), method: :delete %></span>
-                
-                <% end %>
-                <% end %>
-            </div>
-            
+      <!-- Single Cart Item -->
+      <% if session[:cart_id] %>
+      <% @current_cart.cart_items.each do |x| %>
 
-            <!-- Cart Summary -->
-            <% if user_signed_in? %>
-            <div class="cart-amount-summary">
+      <div class="single-cart-item ml-20">
+        <a href="<%= item_path(x.item_id) %>" class="product-image mb-2">
+          <% unless x.image.attachment.nil? %>
+          <%= image_tag item.image %>
+          <% else %>
+          <img src="<%= x.item.image_url %>" alt="img shop">
+          <% end %>
+          <!-- Cart Item Desc -->
+          <div class="cart-item-desc">
+            <h6>
+              <%= x.item.title  %>
+            </h6>
 
-                <h2>Summary</h2>
-                <ul class="summary-table">
-
-                    <li><span>delivery:</span> <span>Free</span></li>
-                    <li><span>total:</span> <span><%= total %> €</span></li>
-
-                </ul>
-                
-                <%= form_tag order_creation_path do %>
-
-                  <article>
-                    <% if flash[:error].present? %>
-                      <div id="error_explanation">
-                        <p><%= flash[:error] %></p>
-                      </div>
-                    <% end %>
-                    
-                  </article>
-                  
-                  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-                          data-description="Le prix de votre panier"
-                          data-amount="<%= total_stripe %>"
-                          data-currency="eur"
-                          data-locale="auto"></script>
-                <% end %>
-                <% else %>
-
-                <%= link_to('Sign in', new_user_session_path)  %>  
+          </div>
+        </a>
+      </div>
+      <span><strong>
+          <%= number_to_currency( x.item.price, :unit=>'€') %></strong></span>
 
 
-                
-                <% end %>
 
+      <span class="hp ml-1">
+        <%= link_to image_tag('core-img/arrow-up.svg'), cart_item_add_path(x.id), method: :post  %></span>
+      <span class="hp">
+        <%= link_to image_tag('core-img/arrow-down.svg'), cart_item_reduce_path(x.id), method: :post  %></span>
+      <span class="badge badge-dark ml-1">Qt :
+        <%= x.quantity %></span>
+      <span class="badge badge-danger hp mb-2">
+        <%= link_to 'Destroy', cart_item_path(x.id), method: :delete %></span>
 
-            </div>
-        </div>
+      <% end %>
+      <% end %>
     </div>
-    <!-- ##### Right Side Cart End ##### -->
+
+
+    <!-- Cart Summary -->
+    <% if user_signed_in? %>
+    <div class="cart-amount-summary">
+
+      <h2>Summary</h2>
+      <ul class="summary-table">
+
+        <li><span>delivery:</span> <span>Free</span></li>
+        <li><span>total:</span> <span>
+            <%= total %> €</span></li>
+
+      </ul>
+
+      <%= form_tag order_creation_path do %>
+
+      <article>
+        <% if flash[:error].present? %>
+        <div id="error_explanation">
+          <p>
+            <%= flash[:error] %>
+          </p>
+        </div>
+        <% end %>
+
+      </article>
+
+      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="<%= Rails.configuration.stripe[:publishable_key] %>" data-description="Le prix de votre panier" data-amount="<%= total_stripe %>" data-currency="eur" data-locale="auto"></script>
+      <% end %>
+      <% else %>
+
+      <%= link_to('Sign in', new_user_session_path)  %>
+
+
+
+      <% end %>
+
+
+    </div>
+  </div>
+</div>
+<!-- ##### Right Side Cart End ##### -->

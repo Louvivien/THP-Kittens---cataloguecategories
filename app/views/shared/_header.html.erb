@@ -1,77 +1,81 @@
- <header class="header_area">
-        <div class="classy-nav-container breakpoint-off d-flex align-items-center justify-content-between">
-            <!-- Classy Menu -->
-            <nav class="classy-navbar" id="essenceNav">
-                <!-- Logo -->
-                <a class="nav-brand" href="/"><h2>🐈</h2></a>
-                <!-- Navbar Toggler -->
-                <div class="classy-navbar-toggler">
-                    <span class="navbarToggler"><span></span><span></span><span></span></span>
-                </div>
-                <!-- Menu -->
-                <div class="classy-menu">
-                    <!-- close btn -->
-                    <div class="classycloseIcon">
-                        <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
-                    </div>
-                    <!-- Nav Start -->
-                    <div class="classynav">
-                        <ul>
-                            <li><a href="/">Home</a></li>
-                            <li><a href="/item">Shop</a></li>
-                            
-                            
-
-                            <% if user_signed_in? %>
-                              <li>
-                              <%= link_to('Logout', destroy_user_session_path, method: :delete) %>        
-                              </li>
-                            <% else %>
-                              <li>
-                              <%= link_to('Sign in', new_user_session_path)  %>  
-                              </li>
-                              <li>
-                                <%= link_to('Sign up', new_user_registration_path)  %>
-                              </li>
-                            <% end %>
-                          <% if current_user && current_user.admin? %>
-                               <li>
-                             <%= link_to('page admin', adminpage_index_path)  %>
-                                </li>
-                                <% end %>
-                         
-                         
-                        </ul>
-                    </div>
-                    <!-- Nav End -->
-                </div>
-            </nav>
-
-            <!-- Header Meta Data -->
-            <div class="header-meta d-flex clearfix justify-content-end">
-                <!-- Favourite Area -->
-                
-                <!-- User Login Info -->
-                <div class="user-login-info">
-                    
-                    <% if user_signed_in? %>
-
-                   <%= link_to image_tag('core-img/user.svg'), user_path(current_user.id) %>
-
-                   <% end %>
-                </div>
-
-
-                <!-- Cart Area -->
-              
-                <% if current_user %>
-                <div class="cart-area">
-                    <a href="#" id="essenceCartBtn"><%= image_tag("core-img/bag.svg", alt: "basket") %><span><%= total_quantity %></span></a>
-                </div>
-                <% end %>
-                
-            </div>
-
+<header class="header_area">
+  <div class="classy-nav-container breakpoint-off d-flex align-items-center justify-content-between">
+    <!-- Classy Menu -->
+    <nav class="classy-navbar" id="essenceNav">
+      <!-- Logo -->
+      <a class="nav-brand" href="/">
+        <h2>🐈</h2>
+      </a>
+      <!-- Navbar Toggler -->
+      <div class="classy-navbar-toggler">
+        <span class="navbarToggler"><span></span><span></span><span></span></span>
+      </div>
+      <!-- Menu -->
+      <div class="classy-menu">
+        <!-- close btn -->
+        <div class="classycloseIcon">
+          <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
         </div>
-    </header>
-    <!-- ##### Header Area End ##### -->
+        <!-- Nav Start -->
+        <div class="classynav">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/item">Shop</a></li>
+
+
+
+            <% if user_signed_in? %>
+            <li>
+              <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+            </li>
+            <% else %>
+            <li>
+              <%= link_to('Sign in', new_user_session_path)  %>
+            </li>
+            <li>
+              <%= link_to('Sign up', new_user_registration_path)  %>
+            </li>
+            <% end %>
+            <% if current_user && current_user.admin? %>
+            <li>
+              <%= link_to('page admin', adminpage_index_path)  %>
+            </li>
+            <% end %>
+
+
+          </ul>
+        </div>
+        <!-- Nav End -->
+      </div>
+    </nav>
+
+    <!-- Header Meta Data -->
+    <div class="header-meta d-flex clearfix justify-content-end">
+      <!-- Favourite Area -->
+
+      <!-- User Login Info -->
+      <div class="user-login-info">
+
+        <% if user_signed_in? %>
+
+        <%= link_to image_tag('core-img/user.svg'), user_path(current_user.id) %>
+
+        <% end %>
+      </div>
+
+
+      <!-- Cart Area -->
+
+      <% if current_user %>
+      <div class="cart-area">
+        <a href="#" id="essenceCartBtn">
+          <%= image_tag("core-img/bag.svg", alt: "basket") %><span>
+            <%= total_quantity %></span></a>
+      </div>
+      <% end %>
+
+    </div>
+
+  </div>
+</header>
+<!-- ##### Header Area End ##### -->
