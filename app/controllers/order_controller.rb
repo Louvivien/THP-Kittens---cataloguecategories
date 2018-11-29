@@ -19,6 +19,7 @@ class OrderController < ApplicationController
     @order.cart_items = @current_cart.cart_items
     @order.user_id = @current_cart.user_id
     @order.save
+    redirect_to order_creation_path
 
     @order2=Order.create!(total: total(session[:cart_id]).to_i, cart_items: @current_cart.cart_items, user_id: @current_cart.user_id)
     puts "___________________________ #{@order2.cart_items.ids}"
@@ -49,6 +50,7 @@ class OrderController < ApplicationController
   end
 
   def show
+    @order = Order.last
   end
 
   def index
