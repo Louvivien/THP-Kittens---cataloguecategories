@@ -1,8 +1,11 @@
+
 class CartController < ApplicationController
+
+  before_action :current_cart
+
+
    def show
-    include CartTotal
      @cart = @current_cart
-     @total = total(current_user.id)
    end
 
    def destroy
@@ -10,6 +13,27 @@ class CartController < ApplicationController
      @cart.destroy
      session[:cart_id] = nil
      redirect_to root_path
+   end
+
+
+   private
+   def current_cart
+     if session[:cart_id]
+       cart = Cart.find_by(id: session[:cart_id])
+       if cart.present?
+         @current_cart = cart
+       else
+         session[:cart_id] = nil
+       end
+     end
+
+
+      if session[:cart_id] == nil && current_user
+       @current_cart = Cart.create(user_id: current_user.id)
+       session[:cart_id] = @current_cart.id
+     end
+
+     
    end
 end
 
