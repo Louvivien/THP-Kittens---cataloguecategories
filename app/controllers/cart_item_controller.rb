@@ -12,6 +12,8 @@
       @cart_item.item = chosen_item
     end
     @cart_item.save
+
+
   end
   def destroy
     @cart_item = CartItem.find(params[:id])
