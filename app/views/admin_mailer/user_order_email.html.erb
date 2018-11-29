@@ -6,15 +6,19 @@
   </head>
   <body>
     <h1>An user ordered something !</h1>
-    <p><%= @user.username %> ordered the following items :</p>
+    <p><%= @user.email %> ordered the following items :</p>
     <table>
-      <tr>Image</tr>
-      <tr>Title</tr>
-      <tr>Qté</tr>
-      <% @order.items.each do |item| %>
-        <td><%= image_tag item.image %></td>
-        <td><%= item.title %></td>
+     <tr>
+      <th>Image</th>
+      <th>Title</th>
+      <th>Qté</th>
+    </tr>
+      <% @order.cart_items.each do |order| %>
+       <tr>
         <td></td>
+        <td><%= order.item.title %></td>
+        <td><%= order.quantity %></td>
+        </tr>
       <% end %>
     </table>
   </body>

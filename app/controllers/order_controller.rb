@@ -7,21 +7,11 @@ class OrderController < ApplicationController
   def create
     @amount = ((total(session[:cart_id]).to_i) * 100)
     @order = Order.new
-    puts "//////////////////////// Current cart : #{@current_cart}"
-    puts "//////////////////////// Current cart id : #{@current_cart.id}"
-    puts "//////////////////////// Session cart id : #{session[:cart_id]}"
-    puts "//////////////////////// Redefined cart : #{Cart.find(session[:cart_id])}"
-    puts "//////////////////////// Redefined cart items : #{Cart.find(session[:cart_id]).cart_items}"
-    puts "//////////////////////// Current cart item ids : #{@current_cart.cart_items.ids}"
-
 
     @order.total = total(session[:cart_id]).to_i 
     @order.cart_items = @current_cart.cart_items
     @order.user_id = @current_cart.user_id
     @order.save
-
-    @order2=Order.create!(total: total(session[:cart_id]).to_i, cart_items: @current_cart.cart_items, user_id: @current_cart.user_id)
-    puts "___________________________ #{@order2.cart_items.ids}"
 
     Cart.destroy(session[:cart_id])
     session[:cart_id] = nil
@@ -39,13 +29,11 @@ class OrderController < ApplicationController
       :description => 'Paiement de #{current_user}',
       :currency => 'eur'
     )
-
+    UserMailer.order_email(current_user, @order).deliver_now
+    AdminMailer.user_order_email(current_user, @order).deliver_now
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to root_path
-  
-
-
   end
 
   def show
