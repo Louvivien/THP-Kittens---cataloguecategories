@@ -1,2 +1,64 @@
-<h1>Order#show</h1>
-<p>Find me in app/views/order/show.html.erb</p>
+<!-- ##### Breadcumb Area Start ##### -->
+    <div class="breadcumb_area bg-img">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                        <h2>Checkout</h2>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Breadcumb Area End ##### -->
+
+    <!-- ##### Checkout Area Start ##### -->
+    <div class="container">
+    <div class="checkout_area section-padding-30">
+        
+            
+
+                
+                    <div class="checkout_details_area mt-50 clearfix">
+
+                        
+                            <h5 class="mb-30">Your order</h5>
+									
+                                <div class="col-12 col-sm-6 col-lg-4 mb-3">
+                                	<% @order.cart_items.each do |order| %>
+                                	<div class="product-img">
+                                       <% unless order.item.image.attachment.nil? %>
+                                       <%= image_tag item.image %>
+                                       <% else %>
+                                       <img src="<%= order.item.image_url %>" alt="img shop">                   
+                                       <% end %>
+                                    </div>
+                                	  <h2>
+                                	    <%= order.item.title %>
+                                	  </h2>
+                                	  <p class="product-desc">
+                                	    <%= order.item.description %>
+                                	  </p>
+                                	  <p class="product-price">
+                                	  	Qt : <%= order.quantity %>                         		
+                                	  </p>
+                                	  
+                                	  <p class="product-price">
+                                	  	<strong>
+                                	    <%= number_to_currency( order.item.price * order.quantity, :unit=>'€') %>
+                                	    </strong>
+                                	  </p>
+                                	  
+                                <% end %> 
+								
+
+                    			</div>
+                    <%= link_to "Back to home", :back, class: "btn essence-btn mt-3 mb-50" %> 	 
+               		</div>
+		
+           
+            
+        
+    </div>
+	</div>
+    <!-- ##### Checkout Area End ##### -->
+

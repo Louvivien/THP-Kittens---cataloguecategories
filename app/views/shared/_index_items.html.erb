@@ -1,0 +1,132 @@
+<!-- ##### Breadcumb Area Start ##### -->
+<div class="breadcumb_area bg-img nyan">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-12">
+                <h2>Shop</h2>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ##### Breadcumb Area End ##### -->
+
+<!-- ##### Shop Grid Area Start ##### -->
+<section class="shop_grid_area section-padding-80">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-4 col-lg-3">
+                <div class="shop_sidebar_area">
+
+                    <!-- ##### Single Widget ##### -->
+                    <div class="widget catagory mb-50">
+                        <!-- Widget Title -->
+                        <h6 class="widget-title mb-30">Catégories</h6>
+
+                        <!--  Catagories  -->
+                        <div class="catagories-menu">
+                            <ul id="menu-content2" class="menu-content collapse show">
+                                <!-- Single Item -->
+                                <li data-toggle="collapse" data-target="#clothing">
+                                  <%= link_to "Persan", show_category_path(id: 1) %>
+                                </li>
+                                <!-- Single Item -->
+                                <li data-toggle="collapse" data-target="#shoes" class="collapsed">
+                                    <%= link_to "Siamois", show_category_path(id: 2) %>
+                                </li>
+                                <!-- Single Item -->
+                                <li data-toggle="collapse" data-target="#accessories" class="collapsed">
+                                <%= link_to "Benghal", show_category_path(id: 3) %>
+                                </li>
+                                <!-- Single Item -->
+                                <li data-toggle="collapse" data-target="#accessories" class="collapsed">
+                                <%= link_to "New collection", show_category_path(id: 4) %>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="col-12 col-md-8 col-lg-9">
+                <div class="shop_grid_product_area">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="product-topbar d-flex align-items-center justify-content-between">
+                                <!-- Total Products -->
+                                <div class="total-products">
+                                    <p><span><%= @items.count %></span> products found</p>
+                                </div>
+                                <!-- Sorting -->
+                                <div class="product-sorting d-flex">
+                                    <p>Sort by:</p>
+                                    <form action="#" method="get">
+                                        <select name="select" id="sortByselect">
+                                            <option value="value">Highest Rated</option>
+                                            <option value="value">Newest</option>
+                                            <option value="value">Price: $$ - $</option>
+                                            <option value="value">Price: $ - $$</option>
+                                        </select>
+                                        <input type="submit" class="d-none" value="">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+
+
+                        <!-- Single Product -->
+                        <% @items.each do |item| %>
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            
+                            <div class="single-product-wrapper">
+                                <!-- Product Image -->
+                                <div class="product-img">
+                                   <% unless item.image.attachment.nil? %>
+                                   <%= image_tag item.image %>
+                                   <% else %>
+                                   <img src="<%= item.image_url %>" alt="img shop">
+                                   <!-- Favourite -->
+                                   <div class="product-favourite">
+                                       <a href="#" class="favme fa fa-heart"></a>
+                                   </div>
+                                   <% end %>
+                                </div>
+                                
+
+                                <!-- Product Description -->
+                                <div class="product-description">
+                                    
+
+                                       
+                                        <h6><%= link_to item.title, item_path(item.id) %></h6>
+                                   
+                                    <p class="product-price"><%=number_to_currency( item.price, :unit=>'€') %></p>
+
+                                    <!-- Hover Content -->
+                                    <div class="hover-content">
+                                        <!-- Add to Cart -->
+                                        <div class="add-to-cart-btn">                                                  
+                                             <%= link_to "Add to cart", cart_item_path(item_id: item.id), method: :post, class: "btn essence-btn" %>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            
+                        </div>
+                        <% end %>
+                        <!-- Single Product -->
+
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+    </div>
+</section>
