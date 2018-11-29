@@ -1,7 +1,7 @@
 class AdminMailer < ApplicationMailer
-  def user_order_email
-    @recipient = admin_user
-    @order = Order.last
-    mail(to: @recipient.email, subject: 'Thanks for ordering!')
+  def user_order_email(user, order)
+    @user = user
+    @order = order
+    mail(to: 'thpkittensadmin@notmailinator.com', subject: 'An user has ordered something!')
   end
 end
