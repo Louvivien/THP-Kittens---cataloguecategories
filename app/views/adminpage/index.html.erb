@@ -1,31 +1,28 @@
-
-
-<table>
-   <tr>
-   		<th>Images</th>
-       <th>Titre</th>
-       <th>Description?</th>
-       <th>Prix</th>
-        <th>Modifier</th>
-    </tr>
-<%= link_to "new item", new_item_path, method: :get  %></span>
-
-    <% @items.each do |item| %>
-    
+<div class="container mt-50 mb-50">
+  <%= link_to "New item", new_item_path, method: :get,  class: "btn essence-btn mt-3 mb-3" %>
+ 
+<table class="table">
+  <thead>
     <tr>
-    	<td><img src="<%=item.image_url%>"></td>
-    	<td><%=item.title %></td>
-    	<td><%=item.description %></td>
-    	<td><%=item.price%></td>
-    	<td> <%= link_to "update", edit_item_path(item.id) %></td>
-
-
-    	
-
-
-
+      <th scope="col">Images</th>
+      <th scope="col">Titre</th>
+      <th scope="col">Description?</th>
+      <th scope="col">Prix</th>
+      <th scope="col">Modifier</th>
     </tr>
-     
-<% end %>
-     
+  </thead>
+  <tbody>
+    <% @items.each do |item| %>
+    <tr>
+      <td><img src="<%=item.image_url%>"></td>
+      <td><%=item.title %></td>
+      <td><%=item.description %></td>
+      <td><%=item.price%></td>
+      <td><%= link_to "update", edit_item_path(item.id) %></td>
+    </tr>
+    <% end %>
+  </tbody>
 </table>
+
+
+</div>
