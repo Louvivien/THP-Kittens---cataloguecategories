@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
 
   resources :order, only: [:new, :show, :index]
-  post 'orders(.:format)', to: 'order#create', as: 'order_creation'
+  post 'order/create', to: 'order#create', as: 'order_creation'
 
   
 
