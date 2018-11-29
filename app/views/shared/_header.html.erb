@@ -33,7 +33,18 @@
                               <li>
                                 <%= link_to('Sign up', new_user_registration_path)  %>
                               </li>
-                            <% end %>
+                             
+                                <% end %>
+
+                             <% if current_user && current_user.admin? %>
+                               <li>
+                             <%= link_to('page admin', adminpage_index_path)  %>
+                                </li>
+                                <% end %>
+
+
+                          
+
                         </ul>
                     </div>
                     <!-- Nav End -->
@@ -54,6 +65,8 @@
                    <%= link_to image_tag('core-img/user.svg'), user_path(current_user.id) %>
 
                    <% end %>
+
+
                 </div>
 
 
