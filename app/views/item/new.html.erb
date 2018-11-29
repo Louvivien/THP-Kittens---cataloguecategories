@@ -1,5 +1,4 @@
-
-<%= form_with model: @item do |f| %>
+<%= form_for @item, url: {action: "create"} do |f|%>
 
 <div class="form-group">
    	<%= f.label :Image %>:
@@ -26,6 +25,6 @@
     <%= f.text_field :price, :class => "form-control" %><br/>
 </div>
   
-	<%= f.submit :class => "btn btn-primary"%>
+	<%= f.submit "create", :class => "btn btn-primary" %>
 
 <% end %>

@@ -19,12 +19,8 @@ class ItemController < ApplicationController
   end
 
   def create
-  	@item = Item.new(item_params)
-  	if @item.save
-  		flash[:info] = "Succesfully created"
-  	else
-  		flash[:warning] = "Could not create item"
-  	end	
+    @item = Item.create!(item_params)
+    redirect_to root_path
   end
 
   def update
