@@ -36,7 +36,9 @@
                 <!-- Cart & Favourite Box -->
                 <div class="cart-fav-box d-flex align-items-center">
                     <!-- Cart -->
+                    <% if user_signed_in? %>
                     <%= link_to "Add to cart", cart_item_path(item_id: @item), method: :post, class: "btn essence-btn" %>
+                    <% end %>
                     <!-- Favourite -->
                     <div class="product-favourite ml-4">
                         <a href="#" class="favme fa fa-heart"></a>
