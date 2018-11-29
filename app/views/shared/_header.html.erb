@@ -61,7 +61,7 @@
               
                 <% if current_user %>
                 <div class="cart-area">
-                    <a href="#" id="essenceCartBtn"><%= image_tag("core-img/bag.svg", alt: "basket") %><span><%= @current_cart.items.count %></span></a>
+                    <a href="#" id="essenceCartBtn"><%= image_tag("core-img/bag.svg", alt: "basket") %><span><%= total_quantity %></span></a>
                 </div>
                 <% end %>
                 
