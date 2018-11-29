@@ -27,6 +27,7 @@ Rails.application.routes.draw do
  
   post 'cart_items' => "cart_items#create"
   get 'cart_items/:id' => "cart_items#create"
+  post 'items', to: 'item#new'
 
 
 resources :adminpage
