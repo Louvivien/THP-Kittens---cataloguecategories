@@ -12,8 +12,7 @@
       @cart_item.item = chosen_item
     end
     @cart_item.save
-
-
+    redirect_back(fallback_location: root_path)
   end
   def destroy
     @cart_item = CartItem.find(params[:id])
@@ -24,11 +23,13 @@
     #   format.json { head :no_content }
     #   format.js   { render :layout => false }
      # end
+    redirect_back(fallback_location: root_path)
   end
   def add_quantity
     @cart_item = CartItem.find(params[:id])
     @cart_item.quantity += 1
     @cart_item.save
+    redirect_back(fallback_location: root_path)
   end
   def reduce_quantity
     @cart_item = CartItem.find(params[:id])
@@ -36,6 +37,7 @@
       @cart_item.quantity -= 1
     end
     @cart_item.save
+    redirect_back(fallback_location: root_path)
   end
   private
     def cart_item_params
