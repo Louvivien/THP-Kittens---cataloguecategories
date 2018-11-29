@@ -1,6 +1,4 @@
-<%= render"shared/basket" %>
-
-    <!-- ##### Single Product Details Area Start ##### -->
+<!-- ##### Single Product Details Area Start ##### -->
     <section class="single_product_details_area d-flex align-items-center">
 
         <!-- Single Product Thumb -->
@@ -38,7 +36,7 @@
                 <!-- Cart & Favourite Box -->
                 <div class="cart-fav-box d-flex align-items-center">
                     <!-- Cart -->
-                    <button type="submit" name="addtocart" value="5" class="btn essence-btn">Add to cart</button>
+                    <%= link_to "Add to cart", cart_item_path(item_id: @item), method: :post, class: "btn essence-btn" %>
                     <!-- Favourite -->
                     <div class="product-favourite ml-4">
                         <a href="#" class="favme fa fa-heart"></a>

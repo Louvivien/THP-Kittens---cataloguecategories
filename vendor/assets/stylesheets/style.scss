@@ -207,9 +207,30 @@ img {
 /* Miscellaneous */
 
 .bg-img {
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
+  background-image: url(asset-path("fond-chat.jpg"));
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat; }
+
+
+  .bg-img1{
+background-image: url(asset-path("chat-persan.jpg"));
+  }
+
+
+
+  .bg-img2{
+  background-image: url(asset-path("chat-bengal.jpg"));
+  }
+
+
+  .bg-img3{
+    background-image: url(asset-path("chat-siamois.jpg"));
+  }
+  
+.bg-img4{
+  background-image: url(asset-path("chat-mignon.jpg"));
+
 }
 
 .bg-white {
