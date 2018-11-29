@@ -8,15 +8,16 @@
        <th>Prix</th>
         <th>Modifier</th>
     </tr>
+<%= link_to "new item", new_item_path, method: :get  %></span>
 
     <% @items.each do |item| %>
-
+    
     <tr>
     	<td><img src="<%=item.image_url%>"></td>
     	<td><%=item.title %></td>
     	<td><%=item.description %></td>
     	<td><%=item.price%></td>
-    	<td> <a href="">modifier</a> </tD>
+    	<td> <%= link_to "update", edit_item_path(item.id) %></td>
 
 
     	

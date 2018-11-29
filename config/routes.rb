@@ -7,11 +7,6 @@ Rails.application.routes.draw do
   get '/users/:id', to: 'users#show', as: 'user'
 
 
-  # get 'order/new'
-  # get 'order/create'
-  # get 'order/show'
-  # get 'order/index'
-
   root 'home#index'
 
 
@@ -19,8 +14,10 @@ Rails.application.routes.draw do
   post 'order/create', to: 'order#create', as: 'order_creation'
 
   
+  resources :item 
 
-  resources :item
+  get '/category/:id', to: "category#show", as: 'show_category'
+   
   post 'cart_item', to: "cart_item#create"
   delete 'cart_item.:id', to: "cart_item#destroy"
   post 'cart_item/:id/add' => "cart_item#add_quantity", as: "cart_item_add"
