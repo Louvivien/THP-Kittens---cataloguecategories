@@ -281,7 +281,7 @@
                             <% @order.cart_items.each do |order| %>
                             <tr>
                              <td>
-                                <%= order.item.image %>
+                                <%= image_tag url_for(order.item.image) %>
                               </td>
                               <td>
                                 <%= order.item.title %>
