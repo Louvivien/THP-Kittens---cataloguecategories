@@ -27,7 +27,7 @@
                                 	<% @order.cart_items.each do |order| %>
                                 	<div class="product-img">
                                        <% unless order.item.image.attachment.nil? %>
-                                       <%= image_tag item.image %>
+                                       <%= image_tag order.item.image %>
                                        <% else %>
                                        <img src="<%= order.item.image_url %>" alt="img shop">                   
                                        <% end %>
